@@ -1,0 +1,23 @@
+{
+  "name": "file-manager",
+  "version": "1.0.0",
+  "description": "A web based file manager",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hibeekaey/file-manager.git"
+  },
+  "author": "Hibeekaey",
+  "devDependencies": {
+    "electron-prebuilt": "^1.2.0"
+  },
+  "build": {
+	"appId": "com.coolhibeekaey.file-manager",
+	"win": {
+	  "msi": true
+	}
+  }
+}

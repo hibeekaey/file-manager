@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <title>File Manager</title>
+        <link href="css/index.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="main.js"></script>
+		<script>
+			window.addEventListener("load", function() {
+				manager.init();
+			}, false)
+		</script>
+    </head>
+    <body>
+		<div class="screen">
+			<div class="header" onclick="manager.deSelect();">
+				<div class="btn-container">
+					<table>
+						<tr>
+							<td>
+								<div class="btn" onclick="manager.pushScreen('create.html');">
+									<span>create</span>
+								</div>
+							</td>
+							<td>
+								<div id="delete" class="btn right" onclick="window.setTimeout(function() {manager.delete();}, 1)">
+									<span>delete</span>
+								</div>
+							</td>
+							<td class="third-child">
+								<div class="btn right" onclick="window.setTimeout(function() {manager.init();}, 1)">
+									<span>refresh</span>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="content">
+				<div id="list" class="main" onclick="manager.deSelect();">
+				</div>
+				<div class="sidebar">
+					<table>
+						<tr>
+							<td class="title">
+								<span>filename</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="detail">
+								<input id="filename" type="text" oninput="if (manager.getElem('update').style.display === 'none') {manager.show('update');}"/>
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td class="title">
+								<span>author</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="detail">
+								<input id="author" type="text" oninput="if (manager.getElem('update').style.display === 'none') {manager.show('update');}"/>
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td class="title">
+								<span>description</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="detail">
+								<input id="description" type="text" oninput="if (manager.getElem('update').style.display === 'none') {manager.show('update');}"/>
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td class="title">
+								<span>size</span>
+							</td>
+						</tr>
+						<tr>
+							<td id="size" class="detail"></td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td class="title">
+								<span>date created</span>
+							</td>
+						</tr>
+						<tr>
+							<td id="created" class="detail"></td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td class="title">
+								<span>date modified</span>
+							</td>
+						</tr>
+						<tr>
+							<td id="modified" class="detail"></td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td class="title">
+								<span>coolness level</span>
+							</td>
+						</tr>
+						<tr>
+							<td id="level" class="detail"></td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td>
+								<div id="update" class="btn center" onclick="manager.update();">
+									<span>update</span>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="status">
+				<table>
+					<tr>
+						<td id="count">
+							<span>0 item</span>
+						</td>
+						<td class="text-right">
+							<span>designed by cool hibeekaey&#8482;</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+        <script type="text/javascript" src="js/index.js"></script>
+	</body>
+</html>

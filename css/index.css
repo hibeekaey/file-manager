@@ -1,0 +1,289 @@
+body {
+	padding: 0;
+	margin: 0;
+	user-select: none;
+	font-smoothing: antialiased;
+	-webkit-user-select: none;
+	-webkit-font-smoothing: antialiased;
+	font-family: Candara;
+	letter-spacing: 1px;
+}
+
+.screen {
+	float: left;
+	width: 667px;
+	height: 375px;
+	position: absolute;
+	z-index: 0;
+}
+
+.header {
+	float: left;
+	top: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
+	height: 40px;
+	background: #d1d1d1;
+    background: -webkit-linear-gradient(top, #f6f6f6, #d1d1d1);
+}
+
+.btn-container > table {
+	float: left;
+	height: 40px;
+	width: 667px;
+}
+
+.third-child {
+	width: 142px;
+}
+
+.btn-container td {
+	padding: 0 10px;
+}
+
+.btn {
+	width: 100px;
+	height: 20px;
+	border-radius: 5px;
+	background: #e8e8e8;
+	background: -webkit-linear-gradient(top, #ffffff, #e8e8e8);
+	border: 1px solid #bebebe;
+	text-align: center;
+	font-size: 10pt;
+	line-height: 20px;
+	cursor: pointer;
+}
+
+.btn:active {
+	background: #ffffff;
+	background: -webkit-linear-gradient(bottom, #ffffff, #e8e8e8);
+}
+
+.right {
+	float: right;
+}
+
+.center {
+	margin: 0 auto;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+	cursor: default;
+}
+
+.content {
+	float: left;
+	top: 40px;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+	position: absolute;
+}
+
+.main {
+	float: left;
+	width: 500px;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.item-holder {
+	float: left;
+	border: 1px solid transparent;
+	width: 94px;
+	height: 93px;
+	overflow-y: hidden;
+}
+
+.item-holder:hover {
+	border-color: #26a0da;
+	background: #b8e0f3;
+}
+
+.item-holder:active {
+	background: #d1e8ff;
+}
+
+.item-holder > table {
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+
+.item-holder td {
+	padding: 0;
+}
+
+.item-holder > table tr:nth-child(1) > td {
+	padding: 10px 0 5px;
+}
+
+.item-holder > table tr:nth-child(2) > td > div {
+	font-size: 8pt;
+	text-align: center;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	width: 80px;
+	cursor: default;
+}
+
+.item {
+	background: #26a0da;
+	background: url(../png/icon.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 46px;
+	height: 46px;
+}
+
+.selected {
+	border-color: #26a0da;
+	background: #d1e8ff;
+}
+
+.container {
+	background: #e7e6e7;
+	background: -webkit-linear-gradient(top, #f6f6f6, #e7e6e7);
+	margin: 0 auto;
+	width: 333px;
+	height: 100%;
+}
+
+.container > table {
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+
+.container > table table {
+	float: left;
+	width: 100%;
+}
+
+.container > table table td {
+	font-size: 10pt;
+	text-align: center;
+	padding: 4px 0;
+}
+
+.container input {
+	background: #fefefe;
+	border: none;
+	font-size: 10pt;
+	font-family: Candara;
+	letter-spacing: 1px;
+	border-radius: 4px;
+	border: 1px solid #bebebe;
+}
+
+.container .title {
+	color: #505050;
+	cursor: default;
+}
+
+.container .center {
+	margin-top: 26px;
+}
+
+.editor {
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+
+.editor > table {
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+
+.editor td {
+	padding: 0;
+}
+
+.editor textarea {
+	padding: 10px;
+	border: none;
+	width: 643px;
+	height: 291px;
+	font-size: 10pt;
+	font-family: Candara;
+	letter-spacing: 1px;
+	background: none;
+	max-width: 643px;
+	max-height: 291px;
+}
+
+.sidebar {
+	background: #e7e6e7;
+	float: right;
+	width: 167px;
+	height: 100%;
+	padding: 5px 0;
+}
+
+.sidebar > table {
+	float: left;
+	width: 100%;
+	min-height: 31px;
+}
+
+.sidebar input {
+	padding: 0;
+	width: 133px;
+	border: none;
+	font-size: 8pt;
+	font-family: Candara;
+	letter-spacing: 1px;
+	background: none;
+}
+
+.sidebar input:focus {
+	background: #f6f6f6;
+}
+
+.sidebar .title {
+	font-size: 8pt;
+	color: #909090;
+	padding: 0 0 0 5px;
+	cursor: default;
+}
+
+.sidebar .detail {
+	font-size: 8pt;
+	padding: 0 0 0 15px;
+	cursor: default;
+}
+
+.sidebar .center {
+	margin-top: 10px;
+}
+
+.status {
+	float: left;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
+	height: 20px;
+	background: #f6f6f6;
+}
+
+.status > table {
+	float: left;
+	width: 100%;
+	height: 20px;
+	color: #505050;
+	font-size: 8pt;
+}
+
+.status td {
+	padding: 0 10px;
+	cursor: default;
+}

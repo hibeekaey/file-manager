@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <title>Editor</title>
+        <link href="css/index.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="main.js"></script>
+		<script>
+			window.addEventListener("load", function() {
+				manager.loadData();
+				
+				window.setTimeout(function(){
+					manager.loadFile();
+				},100);
+			}, false)
+		</script>
+    </head>
+    <body>
+		<div class="screen">
+			<div class="header">
+				<div class="btn-container">
+					<table>
+						<tr>
+							<td>
+								<div class="btn" onclick="manager.pushScreen('index.html');">
+									<span>home</span>
+								</div>
+							</td>
+							<td id="title" class="text-center"></td>
+							<td>
+								<div class="btn right" onclick="manager.save();">
+									<span>save</span>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="content">
+				<div class="editor">
+					<table>
+						<tr>
+							<td>
+								<textarea id="editor" autofocus oninput="manager.charCount();"></textarea>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="status">
+				<table>
+					<tr>
+						<td id="count">
+							<span>0 char</span>
+						</td>
+						<td class="text-right">
+							<span>designed by cool hibeekaey&#8482;</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+        <script type="text/javascript" src="js/index.js"></script>
+	</body>
+</html>
