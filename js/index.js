@@ -161,7 +161,7 @@ var manager = {
 	
 	create: function() {
 		if (!this.getElem("filename").value) {
-			window.alert("Filename is missing");
+			window.alert("Filename is missing","Error");
 		} else {
 			var filename = this.getElem("filename").value;
 			var path = url+filename+".txt";
@@ -170,7 +170,7 @@ var manager = {
 			
 			for (var i = 0; i < this.data.data.length; ++i) {
 				if (filename == this.data.data[i].filename) {
-					window.alert("Filename already in use");
+					window.alert("Filename already in use","Error");
 					return;
 				}
 			}
@@ -180,7 +180,7 @@ var manager = {
 			
 			saveFile(path,"");
 			
-			window.alert("File created successfully");
+			window.alert("File created successfully","Success");
 			
 			this.getElem("filename").value = this.getElem("author").value = this.getElem("description").value = null;
 			
@@ -232,10 +232,10 @@ var manager = {
 				this.click(this.selected.id);
 				this.select(this.selected.id);
 			} else {
-				window.alert("Filename already in use");
+				window.alert("Filename already in use","Error");
 			}
 		} else {
-			window.alert("Filename is missing")
+			window.alert("Filename is missing","Error")
 			
 			this.getElem("filename").value = this.data.data[this.selected.id].filename;
 		}
@@ -270,7 +270,7 @@ var manager = {
 		
 		saveFile(this.data.data[this.selected.id].folder_path,this.data.data[this.selected.id].content)
 		
-		window.alert("File saved successfully");
+		window.alert("File saved successfully","Success");
 	},
 	
 	charCount: function() {
