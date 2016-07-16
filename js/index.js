@@ -1,5 +1,6 @@
 var manager = {
 	data: null,
+	url: url.substring(0,url.lastIndexOf('\\'))+"\\files\\",
 	
 	selected: {status: false, id: null, cache: null},
 	
@@ -19,6 +20,12 @@ var manager = {
 			this.setData({"data": []});
 		}
 		
+		fs.exists(this.url,(exists) => {
+			if (!exists) {
+				fs.mkdir(this.url,() => {/**/})	
+			}
+		});
+		
 		this.data = JSON.parse(this.getData());
 		
 		if (this.data.data.length > 0) {
@@ -31,15 +38,11 @@ var manager = {
 			this.setData(this.data);
 			this.data = JSON.parse(this.getData());
 		} else {
-			getContent(this.data.data[length-1].folder_path)
+			getContent(length-1);
 			
 			window.setTimeout(function(){
-				var content = window.localStorage.getItem("content");
-				manager.data.data[length-1].content = content;
-				window.localStorage.removeItem("content");
-				
 				manager.syncData(length-1);
-			},100);
+			},150);
 		}
 	},
 	
@@ -164,9 +167,9 @@ var manager = {
 			window.alert("Filename is missing","Error");
 		} else {
 			var filename = this.getElem("filename").value;
-			var path = url+filename+".txt";
+			var path = this.url+filename+".txt";
 			
-			var file = {"filename": filename, "type": ".co", "author": this.getElem("author").value, "description": this.getElem("description").value, "folder_path": path, "size": "0 bytes", "date_created": this.currentTime(), "date_modified": "", "id": this.data.data.length, "content": "", "coolness_level": "9.99"};
+			var file = {"filename": filename, "type": ".co", "author": this.getElem("author").value, "description": this.getElem("description").value, "folder_path": path, "size": "0 bytes", "date_created": this.currentTime(), "date_modified": "", "id": this.data.data.length, "content": "", "coolness_level": 0.00};
 			
 			for (var i = 0; i < this.data.data.length; ++i) {
 				if (filename == this.data.data[i].filename) {
@@ -220,7 +223,7 @@ var manager = {
 				
 				var oldPath = this.data.data[this.selected.id].folder_path;
 				
-				this.data.data[this.selected.id].folder_path = url+this.data.data[this.selected.id].filename+".txt";
+				this.data.data[this.selected.id].folder_path = this.url+this.data.data[this.selected.id].filename+".txt";
 				this.data.data[this.selected.id].date_modified = this.currentTime();
 				
 				this.setData(this.data);
@@ -242,29 +245,24 @@ var manager = {
 	},
 	
 	editor: function(id) {
-		window.localStorage.setItem("id", id);
-		
-		this.pushScreen("editor.html");
+		this.pushScreen("editor.html?id="+id);
 	},
 	
 	loadFile: function() {
-		if (window.localStorage.getItem("id")) {
-			this.selected.id = window.localStorage.getItem("id");
-			window.localStorage.removeItem("id")
-			
-			this.getElem("title").innerHTML = "<span>"+this.data.data[this.selected.id].filename+this.data.data[this.selected.id].type+"</span>";
-			this.getElem("editor").value = this.data.data[this.selected.id].content;
-			
-			this.charCount();
-		} else{
-			window.location = "index.html";
-		}
+		var url = window.location.href;
+		this.selected.id = parseInt(url.substr(url.indexOf('=')+1));
+		
+		this.getElem("title").innerHTML = "<span>"+this.data.data[this.selected.id].filename+this.data.data[this.selected.id].type+"</span>";
+		this.getElem("editor").value = this.data.data[this.selected.id].content;
+
+		this.charCount();
 	},
 	
 	save: function() {
 		this.data.data[this.selected.id].content = this.getElem("editor").value;
 		this.data.data[this.selected.id].date_modified = this.currentTime();
 		this.data.data[this.selected.id].size = this.size(this.getElem("editor").value.length);
+		this.data.data[this.selected.id].coolness_level += 0.01;
 		
 		this.setData(this.data);
 		
