@@ -4,7 +4,7 @@ const {BrowserWindow} = require('electron');
 
 const fs = require('fs');
 
-var url = `${__dirname}/files/`;
+var url = `${__dirname}`;
 
 app.on('ready', () => {
 	let win = new BrowserWindow({width: 683, height: 414, resizable: false, fullscreenable: false});
@@ -44,8 +44,10 @@ function renameFile(path,newPath) {
 	});
 }
 
-function getContent(path) {
-	fs.readFile(path,'utf8',(e,data) => {
-		window.localStorage.setItem("content",data);
+function getContent(id) {
+	fs.readFile(manager.data.data[id].folder_path,'utf8',(e,data) => {
+		window.setTimeout(function(){
+			manager.data.data[id].content = data;
+		},100);
 	});
 }

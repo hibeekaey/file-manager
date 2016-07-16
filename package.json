@@ -1,5 +1,5 @@
 {
-  "name": "file-manager",
+  "name": "Filemanager",
   "version": "1.0.0",
   "description": "A web based file manager",
   "main": "main.js",
@@ -15,9 +15,14 @@
     "electron-prebuilt": "^1.2.0"
   },
   "build": {
-	"appId": "com.coolhibeekaey.file-manager",
+	"appId": "com.coolhibeekaey.filemanager",
 	"win": {
-	  "msi": true
+		"msi": true
 	}
+  },
+  "scripts": {
+	"postinstall": "install-app-deps",
+	"pack": "build --dir",
+	"dist": "build"
   }
 }
