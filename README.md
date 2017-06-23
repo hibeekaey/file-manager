@@ -1,2 +1,3 @@
-# file-manager
-A web based file manager.
+# Desktop File Manager
+
+A Desktop File Manager built with Electron.
